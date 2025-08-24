@@ -1,4 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbziRR38Rdg0pCFvh7v549hl_MvPZWHX0qOXuZTQItNTe8_nd6a8mYvlaOYtiVd1o7gTjA/exec"; 
+const scriptURL = "https://script.google.com/macros/s/AKfycbwCmhBv16wIF3UPF8GCZ1VVS0W_ubKtWYirIeVUwyh1OxAIq8_ahENb1kNLFGyS4yBC0Q/exec"; 
 
 document.getElementById("sheetForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -31,4 +31,5 @@ document.getElementById("sheetForm").addEventListener("submit", async (e) => {
     status.textContent = "Request failed: " + err.message;
   }
 });
+
 
