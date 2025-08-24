@@ -1,23 +1,22 @@
-function doPost(e) {
-  try {
-    const sheet = SpreadsheetApp.openById("1w0YZR380OAtRMh3DCzPGhdt3XOGXZDJmOZ3TWMLjsfg")
-      .getSheetByName("Sheet1");
-    const data = JSON.parse(e.postData.contents);
-
-    sheet.appendRow([
-      data.name,
-      data.email,
-      data.challenge,
-      new Date()
-    ]);
-
-    return ContentService.createTextOutput(
-      JSON.stringify({ result: "success" })
-    ).setMimeType(ContentService.MimeType.JSON);
-
-  } catch (error) {
-    return ContentService.createTextOutput(
-      JSON.stringify({ result: "error", error: error.message })
-    ).setMimeType(ContentService.MimeType.JSON);
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save to Google Sheet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Submit Your Challenge</h2>
+    <form id="sheetForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="challenge" placeholder="Your Challenge" rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="status"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
